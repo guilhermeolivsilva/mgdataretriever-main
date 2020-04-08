@@ -10,7 +10,7 @@ Atualmente, é compatível com:
 - Portal da Transparência do Estado
 
 #### Roadmap
-As bases a seguir foram mapeadas e serão implementadas futurametne
+As bases a seguir foram mapeadas e serão implementadas futuramente
 - DataViva
 - Fundação João Pinheiro
 
