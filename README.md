@@ -15,7 +15,7 @@ As bases a seguir foram mapeadas e serão implementadas futurametne
 - Fundação João Pinheiro
 
 ## Sobre o autor
-mgdataretriever é desenvolvido por Guilherme O. Silva, estudantes de graduação em Ciências Econômicas na UFMG. O projeto não possui qualquer vínculo com a instituição.
+mgdataretriever é desenvolvido por Guilherme O. Silva, estudante de graduação em Ciências Econômicas na UFMG. O projeto não possui qualquer vínculo com a instituição.
 Entre em contato!
 - [Email](mailto:guilherme.olivsilva01@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/guilherme-oliveira-104090195/)
