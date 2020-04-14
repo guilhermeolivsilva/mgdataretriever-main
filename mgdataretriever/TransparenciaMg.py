@@ -91,7 +91,7 @@ class TransparenciaMg:
     """
     Funções para o usuário final
     """
-    def listarPacotes(self):
+    def listarConjuntos(self):
         self.listPackages(self.getPackageList())
         
     def listarDatasetsPorConjunto(self, packageName):
