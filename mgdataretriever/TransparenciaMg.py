@@ -63,7 +63,10 @@ class TransparenciaMg:
     def getDatasetListByPackage(self, packageName):
         self.params = (('id', packageName),)
         response = requests.get(f'{self.reqUrl}/package_show', headers=self.headers, params=self.params, cookies=self.cookies, verify=False)
-        return (json.loads(response.text))['result']['resources']
+        try:
+            return (json.loads(response.text))['result']['resources']
+        except:
+            raise ValueError('Nome de Conjunto inválido')
     
     def listDatasetsByPackage(self, packageName):
         for dataset in packageName:
@@ -72,10 +75,14 @@ class TransparenciaMg:
     def getDownloadLinkByDatasetName(self, packageName, datasetName):
         datasetList = self.getDatasetListByPackage(packageName)
         datasetIndex = next((index for (index, d) in enumerate(datasetList) if d["name"] == datasetName), None)
-        return datasetList[datasetIndex]['url']
+        try:
+            return datasetList[datasetIndex]['url']
+        except:
+            raise ValueError('Nome de Dataset inválido')
     
     def downloadDatasetByName(self, packageName, datasetName):
         downloadLink = self.getDownloadLinkByDatasetName(packageName, datasetName)
+        
         downloadFile = requests.get(downloadLink)
         datasetFileName = re.findall(r"/download/(\w*.\w*)",downloadLink)[0]
         open(f'downloads/{self.directory}/{datasetFileName}', 'wb').write(downloadFile.content)
@@ -94,6 +101,6 @@ class TransparenciaMg:
         try:
             self.downloadDatasetByName(packageName, datasetName)
             print(f'{datasetName} foi baixado com sucesso')
-        except:
-            print(f'Erro no download de {datasetName}')
+        except ValueError as e:
+            print(str(e) + f'. Erro no download de {datasetName}')
         
