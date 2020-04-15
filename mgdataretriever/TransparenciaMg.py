@@ -12,22 +12,23 @@ import re
 class TransparenciaMg:
     
     """
-    Construção de funções
+    Construtor. Inicializa variáveis importantes e configura o diretório.
     """
     def __init__(self):
         self.directory = 'portal da transparencia'
+        self.datasetFileName = ''
     
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         
         try:
             os.mkdir('downloads')
         except FileExistsError:
-            print("downloads main folder already exists")
+            print('')
         
         try:
             os.mkdir(f'downloads/{self.directory}')
         except FileExistsError:
-            print(f"{self.directory} subfolder already exists")
+            print('')
             
         """
         Parâmetros globais das requisições
@@ -54,6 +55,8 @@ class TransparenciaMg:
     """
     def getPackageList(self):
         response = requests.get(f'{self.reqUrl}/package_list', headers=self.headers, cookies=self.cookies, verify=False)
+        response.close()
+        
         return (json.loads(response.text)['result'])
     
     def listPackages(self, packageList):
@@ -63,6 +66,8 @@ class TransparenciaMg:
     def getDatasetListByPackage(self, packageName):
         self.params = (('id', packageName),)
         response = requests.get(f'{self.reqUrl}/package_show', headers=self.headers, params=self.params, cookies=self.cookies, verify=False)
+        
+        response.close()
         try:
             return (json.loads(response.text))['result']['resources']
         except:
@@ -84,8 +89,9 @@ class TransparenciaMg:
         downloadLink = self.getDownloadLinkByDatasetName(packageName, datasetName)
         
         downloadFile = requests.get(downloadLink)
-        datasetFileName = re.findall(r"/download/(\w*.\w*)",downloadLink)[0]
-        open(f'downloads/{self.directory}/{datasetFileName}', 'wb').write(downloadFile.content)
+        self.datasetFileName = re.findall(r"/download/(\w*.\w*)",downloadLink)[0]
+        open(f'downloads/{self.directory}/{self.datasetFileName}', 'wb').write(downloadFile.content)
+        downloadFile.close()
 
 
     """
@@ -95,12 +101,16 @@ class TransparenciaMg:
         self.listPackages(self.getPackageList())
         
     def listarDatasetsPorConjunto(self, packageName):
-        self.listDatasetsByPackage(self.getDatasetListByPackage(packageName))
+        try:
+            self.listDatasetsByPackage(self.getDatasetListByPackage(packageName))
+        except ValueError as e:
+            print('Erro ao listar Conjuntos: ' + str(e))
         
     def baixarDataset(self, packageName, datasetName):
         try:
             self.downloadDatasetByName(packageName, datasetName)
             print(f'{datasetName} foi baixado com sucesso')
+            print('O arquivo está disponível em ' + os.path.dirname(os.path.abspath(__file__)) + f'\downloads\{self.directory}\{self.datasetFileName}')
         except ValueError as e:
             print(str(e) + f'. Erro no download de {datasetName}')
         

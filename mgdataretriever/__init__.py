@@ -6,3 +6,4 @@ Created on Wed Apr  8 15:27:54 2020
 """
 
 from .TransparenciaMg import TransparenciaMg
+from .FundacaoJoaoPinheiro import FundacaoJoaoPinheiro
