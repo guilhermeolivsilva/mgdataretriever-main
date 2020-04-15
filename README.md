@@ -60,7 +60,35 @@ transparenciaMg.baixarDataset('programa-de-financiamento-2009', 'PPP 2008 Aprova
 
 4. O arquivo estará disponível no diretório
 ```
-/downloads/portal da transparencia/
+downloads/portal da transparencia/
+```
+
+### Fundação João Pinheiro: Minas e-Dados
+Basta importar o pacote e instanciar um objeto para começar a trabalhar:
+```
+from mgdataretriever import FundacaoJoaoPinheiro
+meuObjeto = FundacaoJoaoPinheiro()
+```
+
+Diferentemente da abordagem utilizada pelo Portal da Transparência, a plataforma da Fundação João Pinheiro agrupa as informações dentro do próprio arquivo de cada dataset. Para acessá-los, basta que
+
+1. Liste os datasets disponíveis com
+```
+meuObjeto.listarDatasets()
+```
+
+2. Baixe o dataset desejado
+```
+meuObjeto.baixarDataset(nome-do-dataset')
+```
+_É necessário que o nome do dataset seja idêntico a um dos resultados do passo 1._
+```
+fjp.baixarDataset('Turismo')
+```
+
+3. O arquivo estará disponível no diretório
+```
+downloads/fundacao joao pinheiro/
 ```
 
 #### Roadmap
