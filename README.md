@@ -8,11 +8,11 @@ Criado para fins de aprendizado, o pacote implementa funções para download de 
 
 Atualmente, é compatível com:
 - Portal da Transparência do Estado
+- Fundação João Pinheiro
 
 #### Roadmap
 As bases a seguir foram mapeadas e serão implementadas futuramente
 - DataViva
-- Fundação João Pinheiro
 
 ## Sobre o autor
 mgdataretriever é desenvolvido por Guilherme O. Silva, estudante de graduação em Ciências Econômicas na UFMG. O projeto não possui qualquer vínculo com a instituição.
