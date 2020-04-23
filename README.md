@@ -10,9 +10,11 @@ Atualmente, é compatível com:
 - Portal da Transparência do Estado
 - Fundação João Pinheiro
 
+_Nota: o projeto não possui qualquer vínculo com as iniciativas aqui citadas._
+
 #### Roadmap
 As bases a seguir foram mapeadas e serão implementadas futuramente
-- DataViva
+- Brasil.IO
 
 ## Sobre o autor
 mgdataretriever é desenvolvido por Guilherme O. Silva, estudante de graduação em Ciências Econômicas na UFMG. O projeto não possui qualquer vínculo com a instituição.
