@@ -10,11 +10,10 @@ Atualmente, é compatível com:
 - Portal da Transparência do Estado
 - Fundação João Pinheiro
 
-_Nota: o projeto não possui qualquer vínculo com as iniciativas aqui citadas._
+_Nota: o projeto não possui qualquer vínculo com as organizações aqui citadas._
 
 #### Roadmap
-As bases a seguir foram mapeadas e serão implementadas futuramente
-- Brasil.IO
+Mapear novas bases para integração. Caso tenha sugestões, não hesite em entrar em contato!
 
 ## Sobre o autor
 mgdataretriever é desenvolvido por Guilherme O. Silva, estudante de graduação em Ciências Econômicas na UFMG. O projeto não possui qualquer vínculo com a instituição.

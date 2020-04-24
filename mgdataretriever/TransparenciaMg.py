@@ -5,7 +5,6 @@ Created on Wed Apr  8 15:08:04 2020
 @author: Guilherme
 """
 import requests
-import json
 import os
 import re
 
@@ -45,7 +44,7 @@ class TransparenciaMg:
             'DNT': '1',
             'Upgrade-Insecure-Requests': '1',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'Accept': 'application/json',
             'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
         }
     
@@ -57,7 +56,7 @@ class TransparenciaMg:
         response = requests.get(f'{self.reqUrl}/package_list', headers=self.headers, cookies=self.cookies, verify=False)
         response.close()
         
-        return (json.loads(response.text)['result'])
+        return ((response.json())['result'])
     
     def listPackages(self, packageList):
         for packageName in packageList:
@@ -69,7 +68,7 @@ class TransparenciaMg:
         
         response.close()
         try:
-            return (json.loads(response.text))['result']['resources']
+            return (response.json())['result']['resources']
         except:
             raise ValueError('Nome de Conjunto inválido')
     
