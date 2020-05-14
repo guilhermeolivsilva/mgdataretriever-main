@@ -27,6 +27,11 @@ Na pasta do projeto a utilizar os datasets, clone o repositório com
 git clone https://github.com/guilhermeolivsilva/mgdataretriever
 ```
 
+Instale as dependências necessárias com
+```
+pip install requirements.txt
+```
+
 ### Portal da Transparência de MG
 Basta importar o pacote e instanciar um objeto para começar a trabalhar:
 ```
